@@ -37,7 +37,7 @@ app.post("/signin", (req, res) => {
     req.body.password === database.users[0].password
   ) {
     console.log(`${req.body.email} has signed in!`);
-    res.json("Success");
+    res.json(database.users[0]);
   } else {
     console.log("Login attempt failed");
     res.status(400).json("Fail");
@@ -51,7 +51,6 @@ app.post("/register", (req, res) => {
     id: "125",
     name: name,
     email: email,
-    password: password,
     entries: 0,
     joined: new Date(),
   });
